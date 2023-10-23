@@ -2,6 +2,7 @@
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
+
 .product-container{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -9,13 +10,13 @@
     margin-top: 100px;
     margin-left: 50px;
 }
+
 .cart-contaner{
+    height: 90vh;
     background-color: #FFE0B3;
+    position: sticky;
+    top: 80px;
 }
 .cart-contaner h2{
     text-align: center;
-}
-.order-summary{
-  padding-left: 20px;
-  padding-top: 20px;
 }

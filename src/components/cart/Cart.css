@@ -1,0 +1,13 @@
+.order-summary{
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+
+  .btn-carts{
+    background-color: red;
+    padding: 10px;
+    margin-right: 5px;
+    color: white;
+    border: none;
+    border-radius: 8px;
+  }
