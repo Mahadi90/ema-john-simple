@@ -1,3 +1,18 @@
 .cartProduct-container{
     margin: 50px auto;
 }
+
+.procced-order-btn{
+    background-color: rgb(255, 157, 0);
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}

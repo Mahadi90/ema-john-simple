@@ -3,11 +3,19 @@
     padding-top: 20px;
   }
 
-  .btn-carts{
+  .btn-dlt-carts{
     background-color: red;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
     padding: 10px;
-    margin-right: 5px;
+    align-items: center;
     color: white;
+    font-size: 20px;
     border: none;
-    border-radius: 8px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .link-procced{
+    text-decoration: none;
   }

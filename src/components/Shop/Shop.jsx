@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import './Shop.css'
 import Product from '../Product/Product';
 import Cart from '../cart/Cart';
-import { addToDb, getShoppingCart } from '../../utilities/fakedb';
+import { addToDb, deleteShoppingCart, getShoppingCart } from '../../utilities/fakedb';
+import { Link } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 const Shop = () => {
 
@@ -45,6 +47,12 @@ const Shop = () => {
     addToDb(product.id)
   }
 
+  const handleDeleteCartAll = () => {
+    setCart([])
+    deleteShoppingCart()
+   }
+
+
     return (
         <div className='shop-conatiner'>
             <div className='product-container'>
@@ -59,8 +67,14 @@ const Shop = () => {
             <div className='cart-contaner'>
             <h2>Order Summary</h2>
                 <Cart
+                handleDeleteCartAll={handleDeleteCartAll}
                 cart={cart}
-                ></Cart>
+                >
+                  <div>
+                    <Link className='link-procced' to='order'>
+                    <button className='procced-order-btn'>Review Order <FaArrowRight/></button></Link>
+                  </div>
+                </Cart>
             </div>
         </div>
     );

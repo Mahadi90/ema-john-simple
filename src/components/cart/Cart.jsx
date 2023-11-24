@@ -1,8 +1,9 @@
 import React from 'react';
-import './Cart.css'
+import './Cart.css';
+import { FaTrashAlt } from 'react-icons/fa';
 
 
-const Cart = ({cart}) => {
+const Cart = ({cart, handleDeleteCartAll, children}) => {
 
    let totalPrice = 0;
    let shippingCharge = 0;
@@ -18,12 +19,15 @@ const Cart = ({cart}) => {
     return (
         <div className='order-summary'>
         <p>Selected Items : {quantity}</p>
-        <p>Total Price : {totalPrice}</p>
-        <p>Shipping Charge : {shippingCharge}</p>
-        <p>Tax : {tax}</p>
-        <h4>Grand Total : {grandTotal}</h4>
-        <button className='btn-carts'>Clear Cart</button>
-        <button className='btn-carts'>Review Order</button>
+        <p>Total Price : ${totalPrice}</p>
+        <p>Shipping Charge : ${shippingCharge}</p>
+        <p>Tax : ${tax}</p>
+        <h4>Grand Total : ${grandTotal}</h4>
+        <button onClick={handleDeleteCartAll} className='btn-dlt-carts'>
+          Clear Cart
+          <FaTrashAlt />
+          </button>
+          {children}
         </div>
   );
 };
