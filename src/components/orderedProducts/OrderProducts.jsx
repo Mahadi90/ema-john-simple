@@ -2,7 +2,7 @@ import React from 'react';
 import './OrderProducts.css'
 import { FaTrashAlt } from 'react-icons/fa';
 
-const OrderProducts = ({cartProduct}) => {
+const OrderProducts = ({cartProduct, deleteFromCartHandler}) => {
 
     const {id,img,  name, quantity, price} = cartProduct;
 
@@ -14,7 +14,7 @@ const OrderProducts = ({cartProduct}) => {
             <p>Price : <span className='color-orange'>${price}</span></p>
             <p>Quantity : <span className='color-orange'>{quantity}</span></p>
            </div>
-           <button className='product-btn'>
+           <button onClick={() => deleteFromCartHandler(id)} className='product-btn'>
            <FaTrashAlt className='icon-trash' />
            </button>
         </div>
