@@ -1,6 +1,8 @@
 import React from 'react';
 import Cart from '../cart/Cart';
 import { useLoaderData } from 'react-router-dom';
+import OrderProducts from '../orderedProducts/OrderProducts';
+import './Order.css'
 
 const Order = () => {
 
@@ -8,8 +10,13 @@ const Order = () => {
 
     return (
         <div className='shop-conatiner'>
-        <div className='product-container'>
-          <h2>Order page {cartProducts.length}</h2>
+        <div className='cartProduct-container'>
+          {
+            cartProducts.map(cartProduct => <OrderProducts
+            key={cartProduct.id}
+            cartProduct={cartProduct}
+            ></OrderProducts>)
+          }
         </div>
         <div className='cart-contaner'>
         <h2>Order Summary</h2>
