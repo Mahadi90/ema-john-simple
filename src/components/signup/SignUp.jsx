@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const SignUp = () => {
+
+  const { createUser } = useContext(AuthContext)
+  const [succes, setSuccess] = useState('');
+  const [error,setError] = useState('');
+
   const handleSignUp = (e) => {
     e.preventDefault();
+
+     setError('')
+     setSuccess('')
 
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
     const cPassword = form.cPassword.value;
     console.log(email, password, cPassword);
+    
+    if(password !== cPassword){
+        setError('Password does not match');
+        return
+    }
+
+    createUser(email, password)
+    .then(result => {
+        const loggedUser = result.user;
+        console.log(loggedUser)
+        form.reset()
+        setSuccess('User created successfully')
+    })
+    .catch(error => {
+        console.log(error.message);
+        setError(error.message)
+    })
   };
 
   return (
@@ -68,6 +94,8 @@ const SignUp = () => {
         <div className="form-control mt-6">
           <button className="btn btn-primary">Login</button>
         </div>
+        <p className="text-error">{error}</p>
+        <p className="text-success">{succes}</p>
       </form>
     </div>
   );
